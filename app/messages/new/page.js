@@ -3,11 +3,11 @@ import { redirect } from 'next/navigation';
 import { addMessage } from '@/lib/messages';
 
 const NewMessagePage = () => {
-  const createMessage = (formData) => {
+  const createMessage = async (formData) => {
     'use server';
 
     const message = formData.get('message');
-    addMessage(message);
+    await addMessage(message);
     redirect('/messages');
   }
 
